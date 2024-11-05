@@ -5,6 +5,7 @@ namespace example.NugetPackage.Tests
         [Fact]
         public void Test1()
         {
+            // basics
 
         }
     }
