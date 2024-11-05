@@ -32,6 +32,17 @@ jobs:
         with:
           dotnet-version: |
             8.x
+      - name: Run .NET Code Analysis
+        uses: dotnet/code-analysis@v1
+        id: code-analyasis
+        with:
+          build-breaking: true
+          all-categories: all
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: results.sarif
+          
       - name: "Restore/Build/Test"
         run: dotnet test --configuration Release --verbosity normal --logger trx --collect:"XPlat Code Coverage"
       - name: Combine Coverage Reports # This is because one report is produced per project, and we want one result for all of them.
