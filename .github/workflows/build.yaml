@@ -4,9 +4,9 @@ name: "Main Build Process"
 # every commit in a pull request, any published release.
 on:
   push:
-    branches: ["main"]
+    branches: ["main","master"]
   pull_request:
-    branches: ["main"]
+    branches: ["main","master"]
   release:
     types: [published]
 
